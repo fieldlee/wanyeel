@@ -14,8 +14,11 @@ pub fn init_noneed_auth_router() -> Router {
     Router::new()
     //-------------------------------------登录服务-------------------------------------------------------
     .route("/captcha/:uuid", get(captcha_base64))
+
     .route("/captcha/png/:uuid", get(captcha_png))
+    
     .route("/login", post(user_login))
+
     .route("/register", post(user_register))
 
     .route("/check_keys", post(check_user_account))

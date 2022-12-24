@@ -14,6 +14,12 @@ pub enum StatusType {
     Illegel
 }
 #[derive(Clone, Debug,Deserialize,Serialize,PartialEq,Eq)]
+pub enum RegisterType {
+    Password,
+    Phone,
+    Wechat,
+}
+#[derive(Clone, Debug,Deserialize,Serialize,PartialEq,Eq)]
 pub enum LoginType {
     PasswordLogin,
     PhoneLogin,
