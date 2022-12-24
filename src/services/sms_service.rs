@@ -25,7 +25,7 @@ impl SmsSendService {
         let sms_send_apikey = config.sms_send_apikey();
         let sms_send_encode = config.sms_send_encode();
 
-        let content = format!("【万业工具】您好，你的本次验证码是：{}。如非本人操作请忽略本短信。",code);
+        let content = format!("【万业工具】您好，你的本次验证码是：{}。请五分钟内完成验证。如非本人操作请忽略本短信。",code);
 
         let content = encode(content.as_str());
 
