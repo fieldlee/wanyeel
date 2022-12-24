@@ -112,7 +112,7 @@ pub async fn user_register(Json(register): Json<RegisterDTO>) -> impl IntoRespon
                 return RespVO::<()>::from_error(&Error::E("验证码错误".to_string())).resp_json();
             }
         }
-
+        m_register_info.set_phone(Some(register.phone().as_ref().unwrap().to_string()));
         m_register_info.set_login_type(Some(LoginType::PhoneLogin));
 
         // 检查手机号 是否重复
