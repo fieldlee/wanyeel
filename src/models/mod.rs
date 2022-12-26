@@ -5,6 +5,11 @@ pub mod dto;
 
 use serde::{Deserialize, Serialize};
 
+#[derive(Clone, Debug,Deserialize,Serialize,PartialEq,Eq)]
+pub enum ReportType {
+    Issue,
+    Suggest
+}
 
 #[derive(Clone, Debug,Deserialize,Serialize,PartialEq,Eq)]
 pub enum StatusType {

@@ -1,8 +1,10 @@
 use axum::{routing::get,routing::post, Router};
 
 pub mod user_controller;
+pub mod report_controller;
 pub mod wx_controller;
 use user_controller::*;
+use report_controller::*;
 
 pub fn init_need_auth_router() -> Router {
     Router::new()
@@ -26,4 +28,6 @@ pub fn init_noneed_auth_router() -> Router {
     .route("/send_sms", post(send_phone_sms))
     
     .route("/login_phone", post(user_login_phone))
+    // save 意见反馈信息
+    .route("/save_report", post(report))
 }

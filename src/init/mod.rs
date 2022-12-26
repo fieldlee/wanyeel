@@ -13,6 +13,7 @@ use crate::cache::cache::CacheService;
 use crate::services::user_service::UserService;
 use crate::services::user_auth_service::UserAuthService;
 use crate::services::sms_service::SmsSendService;
+use crate::services::report_service::ReportService;
 //初始化配置信息
 pub async fn init_config() {
     let content = read_to_string("application.yaml").await.unwrap();
@@ -153,4 +154,7 @@ pub async fn init_service() {
     info!("UserAuthService init success!");
     APPLICATION_CONTEXT.set::<SmsSendService>(SmsSendService::default());
     info!("SmsSendService init success!");
+    APPLICATION_CONTEXT.set::<ReportService>(ReportService::default());
+    info!("ReportService init success!");
+    
 }

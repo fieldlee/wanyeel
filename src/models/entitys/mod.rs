@@ -1,4 +1,5 @@
 pub mod user_entity;
+pub mod report_entity;
 pub mod pagedata;
 
 
