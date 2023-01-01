@@ -3,6 +3,17 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Serialize, Deserialize, Validate, Clone, Debug, Getters, Setters, Default)]
 #[getset(get = "pub", set = "pub")]
+pub struct AdminSignInDTO {
+    #[validate(required)]
+    #[validate(length(min = 5, message = "账号最少5个字符"))]
+    username: Option<String>,
+    #[validate(required)]
+    #[validate(length(min = 6, message = "密码最少6个字符"))]
+    password: Option<String>
+}
+
+#[derive(Serialize, Deserialize, Validate, Clone, Debug, Getters, Setters, Default)]
+#[getset(get = "pub", set = "pub")]
 pub struct SignInDTO {
     #[validate(required)]
     #[validate(length(min = 5, message = "账号最少5个字符"))]

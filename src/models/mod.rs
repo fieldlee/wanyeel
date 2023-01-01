@@ -48,4 +48,5 @@ pub enum UserType {
     ThreeMonthDoublePlus,
     SixMonthDoublePlus,
     YearDoublePlus,
+    Admin,
 }

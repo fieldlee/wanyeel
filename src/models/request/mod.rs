@@ -32,3 +32,9 @@ pub struct UserQuery {
     unionid: Option<String>,
     routine_openid: Option<String>,
 }
+
+#[derive(Serialize, Deserialize, Clone, Debug, Getters, Setters, Default)]
+#[getset(get = "pub", set = "pub")]
+pub struct ServiceQuery {
+    service_status: Option<i8>,
+}

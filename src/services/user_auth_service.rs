@@ -10,7 +10,7 @@ use crate::utils::password_encoder::PasswordEncoder;
 use crate::config::config::ApplicationConfig;
 use crate::models::dto::sign_in::{SignInDTO,SignInByPhoneDTO};
 use crate::models::vo::jwt::JWTToken;
-use crate::models::vo::sign_in::{SignInVO};
+use crate::models::vo::sign_in::SignInVO;
 use crate::models::StatusType;
 use rbatis::crud::CRUD;
 use rbatis::DateTimeNative;
@@ -46,7 +46,7 @@ impl CrudService<WechatUser, WechatUserDTO, UserQuery> for WechatUserService {
 *struct:UserAuthService
 *desc:用户权限服务  登录 错误重试
 *author:String
-*email:348040933@qq.com
+*email:249608904@qq.com
 */
 pub struct UserAuthService {}
 
@@ -121,7 +121,7 @@ impl UserAuthService {
      *method:get_user_info_by_token
      *desc:根据token获取 暂时没用到
      *author:String
-     *email:348040933@qq.com
+     *email:249608904@qq.com
      */
     pub async fn get_user_info_by_token(&self, token: &JWTToken) -> Result<SignInVO> {
         let rb = APPLICATION_CONTEXT.get::<Rbatis>();
@@ -135,7 +135,7 @@ impl UserAuthService {
      *method:get_user_info
      *desc:获取用户信息
      *author:String
-     *email:348040933@qq.com
+     *email:249608904@qq.com
      */
     pub async fn get_user_info(&self, user: &User) -> Result<SignInVO> {
         let cassie_config = APPLICATION_CONTEXT.get::<ApplicationConfig>();

@@ -31,9 +31,9 @@ async fn main() {
     let commerce_config = APPLICATION_CONTEXT.get::<ApplicationConfig>();
     let server = format!("{}:{}", commerce_config.server().host(), commerce_config.server().port());
     let cors = CorsLayer::new().allow_methods(Any).allow_origin(Any).allow_headers(Any).max_age(Duration::from_secs(60) * 10);
-    //绑定端口 初始化 路由
+    //绑定端口初始化路由
     let app = Router::new()
-        // .nest("/admin", admin::routers())
+        .nest("/admin", apis::admin::routers())
         .nest("/api", apis::api::routers())
         .layer(cors)
         .fallback(fallback.into_service());

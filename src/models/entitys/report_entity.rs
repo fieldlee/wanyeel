@@ -1,6 +1,6 @@
 use crate::models::{ReportType};
 
-#[crud_table(table_name:user_info)]
+#[crud_table(table_name:report)]
 #[derive(Clone, Debug)]
 pub struct Report {
     pub id: Option<i64>,
