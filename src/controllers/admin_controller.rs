@@ -1,6 +1,5 @@
 use axum::response::IntoResponse;
 use crate::models::dto::admin_dto::ServiceDTO;
-use crate::models::entitys::admin_entity::Service;
 use crate::models::request::ServiceQuery;
 use crate::services::admin_service::{AdminAuthService, ServiceInfoService};
 use crate::utils::RespVO;
@@ -18,6 +17,8 @@ pub async fn admin_login(Json(sign): Json<AdminSignInDTO>) -> impl IntoResponse 
     if let Err(e) = sign.validate() {
         return RespVO::<()>::from_error(&Error::E(e.to_string())).resp_json();
     }
+    println!("========");
+    
     let vo = admin_auth_service.sign_in(&sign).await;
     return RespVO::from_result(&vo).resp_json();
 }

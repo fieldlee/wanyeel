@@ -15,6 +15,7 @@ use crate::services::user_auth_service::UserAuthService;
 use crate::services::sms_service::SmsSendService;
 use crate::services::report_service::ReportService;
 use crate::services::admin_service::AdminAuthService;
+use crate::services::admin_service::ServiceInfoService;
 //初始化配置信息
 pub async fn init_config() {
     let content = read_to_string("application.yaml").await.unwrap();
@@ -125,29 +126,6 @@ pub async fn init_service() {
     let config = APPLICATION_CONTEXT.get::<ApplicationConfig>();
     APPLICATION_CONTEXT.set::<CacheService>(CacheService::new().unwrap());
     info!("CacheService init success!");
-    // APPLICATION_CONTEXT.set::<SysAuthService>(SysAuthService::default());
-    // info!("SysUserService init success!");
-    // APPLICATION_CONTEXT.set::<SysUserService>(SysUserService::default());
-    // info!("SysRoleService init success!");
-    // APPLICATION_CONTEXT.set::<SysRoleService>(SysRoleService::default());
-    // info!("SysMenuService init success!");
-    // APPLICATION_CONTEXT.set::<SysMenuService>(SysMenuService::default());
-    // info!("SysMenuService init success!");
-    // APPLICATION_CONTEXT.set::<SysParamsService>(SysParamsService::default());
-    // info!("SysParamsService init success!");
-    // APPLICATION_CONTEXT.set::<SysDictTypeService>(SysDictTypeService::default());
-    // info!("SysDictTypeService init success!");
-    // APPLICATION_CONTEXT.set::<SysDictDataService>(SysDictDataService::default());
-    // info!("SysDictDataService init success!");
-    // APPLICATION_CONTEXT.set::<AsiGroupService>(AsiGroupService::default());
-    // info!("AsiGroupService init success!");
-    // APPLICATION_CONTEXT.set::<UploadService>(UploadService::new(config).unwrap());
-    // APPLICATION_CONTEXT.set::<LogLoginService>(LogLoginService::default());
-    // info!("LogLoginService init success!");
-    // APPLICATION_CONTEXT.set::<LogOperationService>(LogOperationService::default());
-    // info!("LogOperationService init success!");
-    // APPLICATION_CONTEXT.set::<EventConfigService>(EventConfigService {});
-    // info!("EventConfigService init success!");
     //apis  用户服务
     APPLICATION_CONTEXT.set::<UserService>(UserService::default());
     info!("UserService init success!");
@@ -159,5 +137,6 @@ pub async fn init_service() {
     info!("ReportService init success!");
     APPLICATION_CONTEXT.set::<AdminAuthService>(AdminAuthService::default());
     info!("AdminAuthService init success!");
-    
+    APPLICATION_CONTEXT.set::<ServiceInfoService>(ServiceInfoService::default());
+    info!("ServiceInfoService init success!");
 }

@@ -38,13 +38,17 @@ impl AdminAuthService {
         let user: Option<Admin> = rb
             .fetch_by_wrapper(rb.new_wrapper().eq(Admin::account(), &arg.username()))
             .await?;
+        
+        println!("get user info :{:?}", user);
+
         let user = user.ok_or_else(|| {
             Error::from(format!(
                 "账号:{} 不存在!",
                 arg.username().clone().unwrap_or_default()
             ))
         })?;
-        if !user.status.eq(&Some(0)) {
+        println!("get user info 2 :{:?}", user);
+        if !user.status.eq(&Some(1)) {
             return Err(Error::from("账户被禁用!"));
         }
         let mut error = None;
